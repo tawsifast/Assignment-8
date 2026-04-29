@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "UV Protection Sunglasses",
+    "brand": "SunShade",
+    "price": 15,
+    "rating": 4.7,
+    "stock": 10,
+    "description": "Stylish UV protection sunglasses perfect for summer outings.",
+    "image": "https://i.postimg.cc/8cQZ1M0X/sunglasses.png",
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "name": "Beach Flip Flops",
+    "brand": "CoolStep",
+    "price": 12,
+    "rating": 4.5,
+    "stock": 20,
+    "description": "Comfortable and lightweight flip flops for beach and casual wear.",
+    "image": "https://i.postimg.cc/4xH2K7dD/flipflops.png",
+    "category": "Footwear"
+  },
+  {
+    "id": 3,
+    "name": "Straw Summer Hat",
+    "brand": "SunnyWear",
+    "price": 18,
+    "rating": 4.6,
+    "stock": 15,
+    "description": "Wide-brim straw hat to protect you from the summer sun.",
+    "image": "https://i.postimg.cc/B6K7vW3z/hat.png",
+    "category": "Accessories"
+  },
+  {
+    "id": 4,
+    "name": "Portable Water Bottle",
+    "brand": "HydroGo",
+    "price": 10,
+    "rating": 4.8,
+    "stock": 25,
+    "description": "Reusable insulated water bottle to keep drinks cool all day.",
+    "image": "https://i.postimg.cc/j2v7x4yM/bottle.png",
+    "category": "Lifestyle"
+  },
+  {
+    "id": 5,
+    "name": "Summer Cotton T-Shirt",
+    "brand": "FreshFit",
+    "price": 20,
+    "rating": 4.4,
+    "stock": 30,
+    "description": "Soft and breathable cotton t-shirt ideal for hot weather.",
+    "image": "https://i.postimg.cc/fL1pJwXr/tshirt.png",
+    "category": "Clothing"
+  },
+  {
+    "id": 6,
+    "name": "Sunscreen SPF 50+",
+    "brand": "SkinGuard",
+    "price": 14,
+    "rating": 4.9,
+    "stock": 18,
+    "description": "High protection sunscreen lotion for safe summer outdoor activities.",
+    "image": "https://i.postimg.cc/ZR7pY0dW/sunscreen.png",
+    "category": "Skincare"
+  }
+]
