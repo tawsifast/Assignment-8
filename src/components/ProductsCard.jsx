@@ -24,8 +24,8 @@ const ProductsCard = ({product}) => {
           <h2>{product.name}</h2>
         </div>
         <div className="flex items-center justify-between font-semibold">
-            {/* <p className="flex items-center gap-2 text-lg"><FaHeart />{product.likes}</p> */}
-            {/* <p className="flex items-center gap-2 text-lg"><PiDownloadSimpleFill />{product.downloads}</p> */}
+            <p className="flex items-center gap-2 text-lg"><FaHeart />{product.rating}</p>
+            <p className="flex items-center gap-2 text-lg">${product.price}</p>
         </div>
         <Link href={`all-photos/${product.id}`}>
         <Button variant="outline" className={"w-full"}>View</Button>
