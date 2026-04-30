@@ -1,18 +1,38 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {Button,Card,Description,FieldError,Form,Input,Label,TextField,} from "@heroui/react";
 import { error } from "better-auth/api";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import { BsGoogle } from "react-icons/bs";
 
-const SignUpPage = () => {
-    const {register,handleSubmit, watch,formState: { errors }} = useForm();
+const LoginPage = () => {
+  const {register,handleSubmit, watch,formState: { errors }} = useForm();
 
-    const handleLogin =  (data) => {
-        console.log(data,"data");
-   
+    const handleLogin = async (data) => {
+    const {email, password} = data;
+    console.log(data,"data");
+    const { data:res, error } = await authClient.signIn.email({
+    email,
+    password,
+    rememberMe: true,
+    callbackURL: "/",
+});
+   console.log(res,error);
+    if(error){
+    alert(error.message)
+   }
+   if(res){
+    alert("Signin successfull")
+   }
   };
-  console.log(errors,"error");
+  
+  const handleGoogle = async () =>{
+     const data = await authClient.signIn.social({
+    provider: "google",
+  });
+  }
 
   return (
     <Card className="w-5/12 mx-auto border my-10">
@@ -44,9 +64,9 @@ const SignUpPage = () => {
           <Label>Password</Label>
           <Input placeholder="Enter your password" />
 
-          <Description>
+          {/* <Description>
             Must be at least 8 characters with 1 uppercase and 1 number
-            </Description>
+            </Description> */}
           <FieldError />
         </TextField>
 
@@ -55,8 +75,13 @@ const SignUpPage = () => {
         </div>
         <p className="text-center">Don't have an account ? <Link href={"/signup"} className="text-blue-500">Register</Link></p>
       </Form>
+      <div className="text-center">
+      <p className="text-gray-600 mb-2">Or</p>
+      <Button onClick={handleGoogle} variant="outline" className={'w-full'}><BsGoogle></BsGoogle> Sign in with Google</Button>
+      </div>
+        
     </Card>
   );
 };
 
-export default SignUpPage;
+export default LoginPage;

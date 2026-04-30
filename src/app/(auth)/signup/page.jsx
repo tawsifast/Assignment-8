@@ -1,14 +1,30 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {Button,Card,Description,FieldError,Form,Input,Label,TextField,} from "@heroui/react";
 import { useForm } from "react-hook-form";
 
-const SignUpPage = () => {
+const RegisterPage = () => {
     const {register,handleSubmit,watch,formState: { errors },} = useForm();
 
-    const handleRegistration =  (data) => {
+    const handleRegistration = async (data) => {
+      const {name, email, photourl, password} = data
         console.log(data,"data");
-   
+
+        const { data:res, error } = await authClient.signUp.email({
+          name,
+          email,
+          photourl,
+          password,
+          callbackURL:"/"
+});
+   console.log(res, error,"data error");
+   if(error){
+    alert(error.message)
+   }
+   if(res){
+    alert("Signup successfull")
+   }
   };
 
   return (
@@ -30,7 +46,7 @@ const SignUpPage = () => {
         </TextField>
           <TextField
             isRequired
-            {...register("photoyrl")}
+            {...register("photourl")}
           >
             <Label>Photo Url</Label>
             <Input placeholder="Enter photo url" />
@@ -38,15 +54,8 @@ const SignUpPage = () => {
           </TextField>
         <TextField
           isRequired
-          {...register("email")}
+          {...register("email", { required: true })}
           type="email"
-          validate={(value) => {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-              return "Please enter a valid email address";
-            }
-
-            return null;
-          }}
         >
           <Label>Email</Label>
           <Input placeholder="Enter your email" />
@@ -89,4 +98,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default RegisterPage;
