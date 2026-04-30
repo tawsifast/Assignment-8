@@ -1,6 +1,7 @@
 "use client";
 import { authClient } from "@/lib/auth-client";
 import { Link, Button, Avatar } from "@heroui/react";
+import { BsCart2 } from "react-icons/bs";
 
 const Navbar = () => {
   const userData = authClient.useSession();
@@ -41,9 +42,10 @@ const Navbar = () => {
               </Button>
             </div>
           )}
-          
+
           {user && (
             <div className="flex items-center gap-2">
+              <Button variant="outline"><BsCart2 /></Button>
               <Avatar size="sm">
                 <Avatar.Image
                   alt={user?.name}

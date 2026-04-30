@@ -1,9 +1,10 @@
+import Quantity from '@/components/Quantity';
 import React from 'react';
 
 const ProfilePage = () => {
     return (
         <div>
-            profile
+            <Quantity/>
         </div>
     );
 };
