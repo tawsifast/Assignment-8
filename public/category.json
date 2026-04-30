@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "category": "Accessories"
+  },
+  {
+    "id": 2,
+    "category": "Footwear"
+  },
+  {
+    "id": 3,
+    "category": "Lifestyle"
+  },
+  {
+    "id": 4,
+    "category": "Clothing"
+  },
+  {
+    "id": 5,
+    "category": "Skincare"
+  }
+]

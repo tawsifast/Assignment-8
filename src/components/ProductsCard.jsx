@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { FaHeart } from 'react-icons/fa';
-import { PiDownloadSimpleFill } from 'react-icons/pi';
 
 const ProductsCard = ({product}) => {
     console.log(product);
@@ -27,8 +26,8 @@ const ProductsCard = ({product}) => {
             <p className="flex items-center gap-2 text-lg"><FaHeart />{product.rating}</p>
             <p className="flex items-center gap-2 text-lg">${product.price}</p>
         </div>
-        <Link href={`all-photos/${product.id}`}>
-        <Button variant="outline" className={"w-full"}>View</Button>
+        <Link href={`product/${product.id}`}>
+        <Button variant="outline" className={"w-full"}>View Details</Button>
         </Link>
     </Card>
         </div>

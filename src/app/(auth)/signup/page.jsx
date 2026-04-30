@@ -2,9 +2,13 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {Button,Card,Description,FieldError,Form,Input,Label,TextField,} from "@heroui/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { BsGoogle, BsGooglePlay } from "react-icons/bs";
 
 const RegisterPage = () => {
+  const router = useRouter();
     const {register,handleSubmit,watch,formState: { errors },} = useForm();
 
     const handleRegistration = async (data) => {
@@ -16,7 +20,7 @@ const RegisterPage = () => {
           email,
           photourl,
           password,
-          callbackURL:"/"
+          callbackURL:"/signin"
 });
    console.log(res, error,"data error");
    if(error){
@@ -24,8 +28,15 @@ const RegisterPage = () => {
    }
    if(res){
     alert("Signup successfull")
+     router.push("/signin")
    }
   };
+
+  const handleGoogle = async () =>{
+    const data = await authClient.signIn.social({
+    provider: "google",
+    });
+    }
 
   return (
     <Card className="w-5/12 mx-auto border my-10">
@@ -89,11 +100,16 @@ const RegisterPage = () => {
           <FieldError />
         </TextField>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 justify-center ">
           <Button type="submit"><Check />Submit</Button>
           <Button type="reset" variant="secondary">Reset</Button>
         </div>
+        <p className="text-center">If you have an account !  <Link href={"/signin"} className="text-blue-500">Login</Link></p>
       </Form>
+       <div className="text-center">
+            <p className="text-gray-600 mb-2">Or</p>
+            <Button onClick={handleGoogle} variant="outline" className={'w-full'}><BsGoogle/> Sign in with Google</Button>
+            </div>
     </Card>
   );
 };
