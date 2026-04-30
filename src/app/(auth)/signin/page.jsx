@@ -27,7 +27,7 @@ const LoginPage = () => {
     alert("Signin successfull")
    }
   };
-  
+
   const handleGoogle = async () =>{
     const data = await authClient.signIn.social({
     provider: "google",

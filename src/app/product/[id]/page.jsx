@@ -12,7 +12,7 @@ const ProductDetailsPage = async ({ params }) => {
   const product = products.find((p) => p.id == id);
   return (
     <div>
-      <Card className="w-11/12 mx-auto border my-10">
+      <Card className="w-10/12 mx-auto border my-10">
         <div className="grid grid-cols-2 gap-10">
           <div className="flex items-center justify-center bg-gray-100 rounded-xl overflow-hidden h-105">
             <Image
@@ -33,7 +33,7 @@ const ProductDetailsPage = async ({ params }) => {
             </div>
             <Card className="border mt-3">
               <p>Quantity</p>
-              <Quantity/>
+              <Quantity product={product}/>
             </Card>
           </div>
         </div>

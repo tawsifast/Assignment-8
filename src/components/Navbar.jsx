@@ -45,7 +45,7 @@ const Navbar = () => {
 
           {user && (
             <div className="flex items-center gap-2">
-              <Button variant="outline"><BsCart2 /></Button>
+              <Link href={"/cart"}><Button variant="outline"><BsCart2 /></Button></Link>
               <Avatar size="sm">
                 <Avatar.Image
                   alt={user?.name}

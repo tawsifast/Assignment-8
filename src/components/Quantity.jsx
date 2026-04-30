@@ -1,11 +1,15 @@
 "use client";
 import { Button } from "@heroui/react";
+import Link from "next/link";
 import React, { useState } from "react";
 import { BsCart2 } from "react-icons/bs";
 import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
+import { getProduct } from "./data";
 
-const Quantity = () => {
+const Quantity = ({product}) => {
+
   const [item, setItem] = useState(0);
+  console.log(product);
   const increaseItem = () => {
     const updateItem = item + 1;
     setItem(updateItem);
@@ -15,6 +19,10 @@ const Quantity = () => {
       setItem(item - 1);
     }
   };
+
+  const handleCart = () =>{
+
+  }
   return (
     <div className="">
       <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden w-full">
@@ -25,8 +33,10 @@ const Quantity = () => {
         </Button>
       </div>
         <Button className={"bg-green-600 w-full my-3"}>Buy Now</Button>
-        <div className="flex gap-7">
+
+        <div className="grid grid-cols-2 gap-5">
         <Button variant="outline" className={"w-full border border-green-500 text-green-500"}><BsCart2 />Add to cart</Button>
+
         <Button variant="outline" className={"w-full border border-green-500 text-green-500"}><FaRegHeart />Wishlist</Button>
         </div>
     </div>
