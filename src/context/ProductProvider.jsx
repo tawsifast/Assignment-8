@@ -1,9 +1,10 @@
 "use client"
-import { addToLocalDB, getAllFromLocalDB, getAllProductFromLocalDB } from "@/utils/localDB";
+import { addToLocalDB, deleteFromLocalDB, getAllFromLocalDB, getAllProductFromLocalDB } from "@/utils/localDB";
 import { createContext, useEffect, useState } from "react";
 
 export const productContext = createContext();
 const ProductProvider = ({children}) => {
+    
 
     const [storedProduct, setStoredProduct] = useState([]);
 
@@ -13,42 +14,34 @@ const ProductProvider = ({children}) => {
       setStoredProduct(getProductFromDb); 
     },[])
 
-    const handleCart = (proObject) =>{
+    const handleCart = (proObject,item) =>{
 
-        addToLocalDB(proObject);
-       console.log(proObject,storedProduct, "id");
-       const isExistBook = storedProduct.find((pro)=> pro.id == proObject.id);
-       if(isExistBook){
-        alert("The product already exist")
-       }else{
-        setStoredProduct([...storedProduct, proObject]);
+        if(item == 0){
+            alert("Select at least 1 itme");
+            return;
+        }
+        const total = proObject.price * item;
+        const productQuantity = {...proObject, item, total};
+        addToLocalDB(productQuantity);
+
+        const isExistBook = storedProduct.find((pro)=> pro.id == proObject.id);
+        if(isExistBook){
+         alert("The product already exist")
+        }else  {
+
+        console.log(proObject,storedProduct, "id");
+        setStoredProduct([...storedProduct, productQuantity]);
         alert(`${proObject.name} is added`)
        }
       }
 
-    //   const handleCart = (proObject) => {
-    // setStoredProduct((prev) => {
-    //   const isExist = prev.find(
-    //     (pro) => pro.id === proObject.id
-    //   );
+    const handleDelete = (id) => {
+    deleteFromLocalDB(id);  // ✅ LocalDB থেকে সরাও
+    const filteredProduct = storedProduct.filter((pro) => pro.id !== id);
+    setStoredProduct(filteredProduct);  // ✅ UI থেকে সরাও
+}
 
-    //   if (isExist) {
-    //     alert("Product already exists");
-    //     return prev;
-    //   }
-
-    //   alert(`${proObject.name} added to cart`);
-    //   return [...prev, proObject];
-    // });
-    //   }
-
-    //   const data = {
-    //     storedProduct,
-    //     setStoredProduct,
-    //     handleCart
-    //   }
-
-    return <productContext.Provider value={{storedProduct,setStoredProduct,handleCart}}>
+    return <productContext.Provider value={{storedProduct,setStoredProduct,handleCart, handleDelete}}>
         {children}
     </productContext.Provider>
 };

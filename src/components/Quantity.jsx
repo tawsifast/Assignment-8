@@ -39,7 +39,7 @@ const Quantity = ({product}) => {
         <Button className={"bg-green-600 w-full my-3"}>Buy Now</Button>
 
         <div className="grid grid-cols-2 gap-5">
-        <Button onClick={()=> handleCart(product)} variant="outline" className={"w-full border border-green-500 text-green-500"}><BsCart2 />Add to cart</Button>
+        <Button onClick={()=> handleCart(product, item)} variant="outline" className={"w-full border border-green-500 text-green-500"}><BsCart2 />Add to cart</Button>
 
         <Button variant="outline" className={"w-full border border-green-500 text-green-500"}><FaRegHeart />Wishlist</Button>
         </div>

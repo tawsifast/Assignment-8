@@ -17,4 +17,10 @@ const addToLocalDB = (product) =>{
     }
 
 }
+
+export  const  deleteFromLocalDB = (id) =>{
+    const products = getAllProductFromLocalDB();
+    const filteredProduct = products.filter((pro)=> pro.id !== id);
+    localStorage.setItem("product", JSON.stringify(filteredProduct))
+  }
 export {getAllProductFromLocalDB,addToLocalDB}

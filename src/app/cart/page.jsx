@@ -2,38 +2,85 @@
 import { productContext } from "@/context/ProductProvider";
 import { useContext } from "react";
 import Image from "next/image";
-import { Card } from "@heroui/react";
+import { Button, Card } from "@heroui/react";
+import { Delete } from "@gravity-ui/icons";
+import { FiDelete } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { getAllProductFromLocalDB } from "@/utils/localDB";
 
 const CartPage = () => {
-  const { storedProduct } = useContext(productContext);
+  const { storedProduct,setStoredProduct,handleDelete } = useContext(productContext);
   console.log(storedProduct, "cart");
 
+  let total = 0;
+  storedProduct.forEach((product) => {
+    total = total + product.total;
+  });
+
+  const handleCheckOut = () =>{
+    if(storedProduct.length > 0){
+      alert("Product purchased successfull");
+    }else{
+      alert("Please select an item first");
+    }
+  }
+
   return (
-    <div className="w-11/12 mx-auto bg-purple-200">
-      <h2>{storedProduct.length}</h2>
-      <div>
+    <div className="w-11/12 mx-auto my-10 grid grid-cols-5 justify-between gap-10 items-start">
+      <div className="col-span-3">
         {storedProduct.map((item) => {
           return (
-            <div key={item.id} className="grid grid-cols-5">
-              <Card className="border flex flex-row items-center col-span-3 mb-3">
-                <div className="w-15 h-15 overflow-hidden rounded-xl">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    width={80}
-                    height={80}
-                    className="w-full h-full object-cover"
-                  />
+            <div key={item.id} className="">
+              <Card className="border flex flex-row justify-between items-center col-span-3  mb-3">
+                <div className="flex gap-4">
+                  <div className="w-15 h-15 overflow-hidden rounded-xl">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      width={80}
+                      height={80}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <h2>{item.name}</h2>
+                    <p>${item.price}</p>
+                   <Button onClick={()=>handleDelete(item.id)} variant="outline" size="sm" className={"text-red-400"}><RiDeleteBin6Line /></Button>
+                  </div>
                 </div>
                 <div>
-                  <h2>{item.name}</h2>
-                  {/* <p>{item.brand}</p> */}
-                  <p>${item.price}</p>
+                  <p>${item.total}</p>
                 </div>
               </Card>
             </div>
           );
         })}
+      </div>
+
+
+      <div className="bg-white sticky top-20 border max-w-85 border-gray-200 col-span-2 rounded-xl p-5">
+        <p className="text-xs font-medium text-gray-400  mb-4">ORDER SUMMARY</p>
+
+        <div className="flex justify-between mb-2 self start">
+          <span className="text-sm text-gray-500">
+            Total ({storedProduct.length} items)
+          </span>
+          <span className="text-sm">${total}</span>
+        </div>
+
+        <div className="flex justify-between mb-2">
+          <span className="text-sm text-gray-500">Delivery charge</span>
+          <span className="text-sm text-green-600">Free</span>
+        </div>
+
+        <div className="border-t border-gray-100 pt-4 flex justify-between items-center mb-5">
+          <span className="text-base font-medium">Total</span>
+          <span className="text-2xl font-medium">${total}</span>
+        </div>
+
+        <Button onClick={handleCheckOut} className="w-full py-2.5 bg-green-600 text-white rounded-lg text-sm font-medium hover:bg-green-700">
+          Checkout
+        </Button>
       </div>
     </div>
   );
