@@ -9,7 +9,7 @@ const CategoryWrapper = ({categories}) => {
   const activeCategory = searchParams.get("category")
   return (
     <div>
-        <div className="flex items-center gap-5 my-8">
+        <div className="flex items-center flex-wrap gap-3 md:gap-5 my-8">
    
         {categories.map((category) => {
           const isActive = activeCategory == category.category.toLowerCase();

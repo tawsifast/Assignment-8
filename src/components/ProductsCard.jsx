@@ -9,13 +9,13 @@ const ProductsCard = ({product}) => {
     return (
         <div>
           <Card className="border">
-        <div className="relative aspect-square">
+        <div className="relative aspect-square z-10">
           <Image
             src={product.image}
             alt={product.name}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover rounded-xl"
+            className="object-cover rounded-xl z-11"
           />
           <Chip size="sm" className="absolute top-2 right-2">{product.category}</Chip>
         </div>

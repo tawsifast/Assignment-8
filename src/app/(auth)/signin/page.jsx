@@ -35,8 +35,8 @@ const LoginPage = () => {
   }
 
   return (
-    <Card className="w-5/12 mx-auto border my-10">
-      <Form className="flex w-96 flex-col gap-4 mx-auto" onSubmit={handleSubmit(handleLogin)}>
+    <Card className="w-11/12 md:w-5/12 mx-auto border my-10">
+      <Form className="flex w-full flex-col gap-4 mx-auto" onSubmit={handleSubmit(handleLogin)}>
         
         <TextField
           isRequired
