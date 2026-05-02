@@ -2,40 +2,39 @@
 import { productContext } from "@/context/ProductProvider";
 import { useContext } from "react";
 import Image from "next/image";
+import { Card } from "@heroui/react";
 
 const CartPage = () => {
   const { storedProduct } = useContext(productContext);
-//   console.log(storedProduct,"cart");
+  console.log(storedProduct, "cart");
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">
-        Cart ({storedProduct.length})
-      </h2>
-
-      {storedProduct.length === 0 ? (
-        <p>No items in cart</p>
-      ) : (
-        storedProduct.map((item, index) => (
-          <div
-            key={index}
-            className="flex items-center gap-4 border p-4 mb-3 rounded-lg"
-          >
-            <Image
-              src={item.image}
-              alt={item.name}
-              width={80}
-              height={80}
-              className="rounded object-cover"
-            />
-
-            <div>
-              <h3 className="font-semibold">{item.name}</h3>
-              <p>${item.price}</p>
+    <div className="w-11/12 mx-auto bg-purple-200">
+      <h2>{storedProduct.length}</h2>
+      <div>
+        {storedProduct.map((item) => {
+          return (
+            <div key={item.id} className="grid grid-cols-5">
+              <Card className="border flex flex-row items-center col-span-3 mb-3">
+                <div className="w-15 h-15 overflow-hidden rounded-xl">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div>
+                  <h2>{item.name}</h2>
+                  {/* <p>{item.brand}</p> */}
+                  <p>${item.price}</p>
+                </div>
+              </Card>
             </div>
-          </div>
-        ))
-      )}
+          );
+        })}
+      </div>
     </div>
   );
 };

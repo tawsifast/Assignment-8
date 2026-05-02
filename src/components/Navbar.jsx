@@ -4,13 +4,15 @@ import { authClient } from "@/lib/auth-client";
 import { Link, Button, Avatar } from "@heroui/react";
 import { useContext } from "react";
 import { BsCart2 } from "react-icons/bs";
+import NavLink from "./NavLink";
 
 const Navbar = () => {
   const { storedProduct } = useContext(productContext);
   console.log(storedProduct, "context");
+
   const userData = authClient.useSession();
   const user = userData.data?.user;
-  // console.log(user);
+  console.log(user,"image");
 
   const handleSignOut = async () => {
     await authClient.signOut();
@@ -22,19 +24,19 @@ const Navbar = () => {
           <div>Logo</div>
           <ul className="flex items-center gap-5">
             <li>
-              <Link href={"/"} className={"no-underline"}>
+              <NavLink href={"/"} className={"no-underline"}>
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link href={"/product"} className={"no-underline"}>
+              <NavLink href={"/product"} className={"no-underline"}>
                 Product
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link href={"/profile"} className={"no-underline"}>
+              <NavLink href={"/profile"} className={"no-underline"}>
                 Profile
-              </Link>
+              </NavLink>
             </li>
           </ul>
 

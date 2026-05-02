@@ -12,13 +12,13 @@ const RegisterPage = () => {
     const {register,handleSubmit,watch,formState: { errors },} = useForm();
 
     const handleRegistration = async (data) => {
-      const {name, email, photourl, password} = data
+      const {name, email, image, password} = data
         console.log(data,"data");
 
         const { data:res, error } = await authClient.signUp.email({
           name,
           email,
-          photourl,
+          image,
           password,
           callbackURL:"/signin"
 });
@@ -57,7 +57,7 @@ const RegisterPage = () => {
         </TextField>
           <TextField
             isRequired
-            {...register("photourl")}
+            {...register("image")}
           >
             <Label>Photo Url</Label>
             <Input placeholder="Enter photo url" />

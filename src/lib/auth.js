@@ -16,7 +16,15 @@ export const auth = betterAuth({
      socialProviders: {
         google: { 
             clientId: process.env.GOOGLE_CLIENT_ID, 
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET, 
+            clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+            scopes: ["openid", "email", "profile"],
+            mapProfileToUser: (profile) => {
+            return {
+            name: profile.name,
+            email: profile.email,
+            image: profile.picture,   // ← Google এর ছবি এখানে আসে
+        };
+      }, 
         }, 
     },
 

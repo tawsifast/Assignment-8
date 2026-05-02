@@ -8,9 +8,9 @@ import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
 const LoginPage = () => {
-  const {register,handleSubmit, watch,formState: { errors }} = useForm();
+  const {register,handleSubmit, watch, formState: { errors }} = useForm();
 
-    const handleLogin = async (data) => {
+  const handleLogin = async (data) => {
     const {email, password} = data;
     console.log(data,"data");
     const { data:res, error } = await authClient.signIn.email({
@@ -36,7 +36,7 @@ const LoginPage = () => {
 
   return (
     <Card className="w-5/12 mx-auto border my-10">
-      <Form className="flex w-96 flex-col gap-4 mx-auto"onSubmit={handleSubmit(handleLogin)}>
+      <Form className="flex w-96 flex-col gap-4 mx-auto" onSubmit={handleSubmit(handleLogin)}>
         
         <TextField
           isRequired

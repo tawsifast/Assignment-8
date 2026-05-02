@@ -1,18 +1,25 @@
+
 import { Button } from "@heroui/react";
 import Link from "next/link";
 import React from "react";
+import CategoryWrapper from "./CategoryWrapper";
+import { getCategories } from "./data";
 
 const Category = async () => {
-  const res = await fetch("https://assignment-8-mu-rust.vercel.app/category.json");
-  const categories = await res.json();
+  const categories = await getCategories();
   console.log(categories);
   return (
     <div>
-      <div className="flex items-center gap-5 my-8">
-        {categories.map((category) => (
-            <Link key={category.id} href={`?category=${category.category.toLowerCase()}`}><Button>{category.category}</Button></Link>
-        ))}
-      </div>
+
+      <CategoryWrapper categories={categories}></CategoryWrapper>
+      {/* <div className="flex items-center gap-5 my-8">
+   
+        {categories.map((category) => {
+          return(
+            <Link key={category.id} href={`?category=${category.category.toLowerCase()}`}><Button variant="outline"
+            >{category.category}</Button></Link>
+        )})}
+      </div> */}
     </div>
   );
 };
