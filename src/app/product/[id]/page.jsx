@@ -13,7 +13,7 @@ const ProductDetailsPage = async ({ params }) => {
   return (
     <div>
       <Card className="w-10/12 mx-auto border my-10">
-        <div className="grid grid-cols-2 gap-10">
+        <div className="grid grid-rows-1 md:grid-cols-2 gap-10">
           <div className="flex items-center justify-center bg-gray-100 rounded-xl overflow-hidden h-105">
             <Image
               src={product.image}
@@ -23,9 +23,9 @@ const ProductDetailsPage = async ({ params }) => {
               className="object-contain  rounded-2xlmax-h-[90%]"
             />
           </div>
-          <div>
-            <div className="space-y-3">
-              <h2 className="font-bold text-4xl">{product.name}</h2>
+          <div className="md:text-left text-center">
+            <div className="space-y-2 md:space-y-3">
+              <h2 className="font-bold text-3xl md:text-4xl">{product.name}</h2>
               <p className="text-gray-500 text-lg">{product.brand}</p>
               <h3 className="text-red-600 text-2xl">${product.price}</h3>
               <p className="font-semibold text-lg">Description</p>

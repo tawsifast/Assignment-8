@@ -2,7 +2,9 @@ import { Button, Card, Chip } from '@heroui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { FaHeart } from 'react-icons/fa';
+import { CiStar } from 'react-icons/ci';
+import { FaArrowRight, FaHeart, FaStar } from 'react-icons/fa';
+import { RiAtFill } from 'react-icons/ri';
 
 const ProductsCard = ({product}) => {
     console.log(product);
@@ -20,14 +22,14 @@ const ProductsCard = ({product}) => {
           <Chip size="sm" className="absolute top-2 right-2">{product.category}</Chip>
         </div>
         <div>
-          <h2>{product.name}</h2>
+          <h2 className='text-xl font-medium'>{product.name}</h2>
         </div>
         <div className="flex items-center justify-between font-semibold">
-            <p className="flex items-center gap-2 text-lg"><FaHeart />{product.rating}</p>
+            <p className="flex items-center gap-2 text-lg"><FaStar className='text-yellow-400' />{product.rating}</p>
             <p className="flex items-center gap-2 text-lg">${product.price}</p>
         </div>
         <Link href={`product/${product.id}`}>
-        <Button variant="outline" className={"w-full"}>View Details</Button>
+        <Button variant="outline" className={"w-full"}>View Details <FaArrowRight /></Button>
         </Link>
     </Card>
         </div>

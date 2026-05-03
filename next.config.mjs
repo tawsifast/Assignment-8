@@ -8,6 +8,11 @@ const nextConfig = {
         hostname: 'images.pexels.com',
         port: '',
       },
+      {
+        protocol: 'https',
+        hostname: 't4.ftcdn.net',
+        port: '',
+      },
        {
         protocol: "https",
         hostname: "lh3.googleusercontent.com", // Google profile images

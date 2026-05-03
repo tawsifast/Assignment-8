@@ -26,12 +26,12 @@ const CartPage = () => {
   }
 
   return (
-    <div className="w-11/12 mx-auto my-10 grid grid-cols-5 justify-between gap-10 items-start">
-      <div className="col-span-3">
+    <div className="w-11/12 mx-auto my-10 grid grid-rows-1 md:grid-cols-5 justify-between gap-10 items-start">
+     {storedProduct.length > 0 ? <div className="col-span-3">
         {storedProduct.map((item) => {
           return (
             <div key={item.id} className="">
-              <Card className="border flex flex-row justify-between items-center col-span-3  mb-3">
+              <Card className="border flex flex-row justify-between items-center col-span-3 mb-3">
                 <div className="flex gap-4">
                   <div className="w-15 h-15 overflow-hidden rounded-xl">
                     <Image
@@ -55,10 +55,12 @@ const CartPage = () => {
             </div>
           );
         })}
-      </div>
+      </div>: <div className="col-span-2 md:col-span-3">
+        <h2 className="text-3xl md:text-4xl text-center text-purple-600">Please select an item first</h2>
+        </div>}
 
 
-      <div className="bg-white sticky top-20 border max-w-85 border-gray-200 col-span-2 rounded-xl p-5">
+      <div className="bg-white sticky top-20 border md:max-w-85  border-gray-200 col-span-3 md:col-span-2 rounded-xl p-5">
         <p className="text-xs font-medium text-gray-400  mb-4">ORDER SUMMARY</p>
 
         <div className="flex justify-between mb-2 self start">
