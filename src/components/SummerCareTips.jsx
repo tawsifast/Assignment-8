@@ -39,9 +39,9 @@ const SummerCareTips = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           {tips.map((tip) => (
             <Card key={tip.id} className="p-5 text-center shadow-md">
-              <div className="text-4xl mb-3">{tip.icon}</div>
+              <div className="text-5xl mb-3">{tip.icon}</div>
               <h3 className="font-semibold text-lg">{tip.title}</h3>
-              <p className="text-gray-600 text-sm mt-2">{tip.desc}</p>
+              <p className="text-gray-600 text-sm mt-1">{tip.desc}</p>
             </Card>
           ))}
         </div>

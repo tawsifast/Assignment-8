@@ -6,6 +6,7 @@ import { BsCart2 } from "react-icons/bs";
 import { FaMinus, FaPlus, FaRegHeart } from "react-icons/fa";
 import { getProduct } from "./data";
 import { productContext } from "@/context/ProductProvider";
+import { toast } from "react-toastify";
 
 const Quantity = ({product}) => {
 
@@ -13,8 +14,6 @@ const Quantity = ({product}) => {
 
  const {handleCart} = useContext(productContext);
 //  console.log(handleCart,storedProduct,"context" );
-
-  // console.log(product,"prprpr");
 
   const increaseItem = () => {
     const updateItem = item + 1;
@@ -26,6 +25,13 @@ const Quantity = ({product}) => {
     }
   };
 
+  const handleBuy = () =>{
+    if(item > 0){
+      toast.success("Congrats you bought 1 item")
+    }else{
+      toast.warning("Select at least 1 item")
+    }
+  }
   
   return (
     <div className="">
@@ -36,7 +42,7 @@ const Quantity = ({product}) => {
         <Button onClick={increaseItem} variant="outline" className="min-w-0 w-10 h-10 border-none rounded-none hover:bg-gray-100"><FaPlus/>
         </Button>
       </div>
-        <Button className={"bg-green-600 w-full my-3"}>Buy Now</Button>
+        <Button onClick={handleBuy} className={"bg-green-600 w-full my-3"}>Buy Now</Button>
 
         <div className="grid grid-cols-2 gap-5">
         <Button onClick={()=> handleCart(product, item)} variant="outline" className={"w-full border border-green-500 text-green-500"}><BsCart2 />Add to cart</Button>

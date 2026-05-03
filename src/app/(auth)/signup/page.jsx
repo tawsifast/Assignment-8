@@ -39,8 +39,9 @@ const RegisterPage = () => {
     }
 
   return (
-    <Card className="w-11/12 md:w-5/12 mx-auto border my-10">
-      <Form className="flex w-full flex-col gap-4 mx-auto"onSubmit={handleSubmit(handleRegistration)}>
+    <div> <h2 className="text-3xl font-bold text-center my-5">Register new account </h2>
+    <Card className="w-11/12 md:w-5/12 mx-auto border my-10 p-6">
+      <Form className="flex w-full flex-col gap-4 mx-auto" onSubmit={handleSubmit(handleRegistration)}>
         <TextField
           isRequired
          {...register("name")}
@@ -111,6 +112,7 @@ const RegisterPage = () => {
             <Button onClick={handleGoogle} variant="outline" className={'w-full'}><BsGoogle/> Sign in with Google</Button>
             </div>
     </Card>
+    </div>
   );
 };
 

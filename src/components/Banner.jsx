@@ -5,7 +5,7 @@ import banner from "../../public/banner.jpg";
 const Banner = () => {
   return (
    
-    <div className="bg-[url('https://t4.ftcdn.net/jpg/10/40/57/73/240_F_1040577301_4Sx67zLL26Pijedg2BkrboGEeedibo6U.jpg')] h-[70vh] w-full bg-cover bg-no-repeat bg-center overflow-hidden flex rounded-lg shadow-2xl"
+    <div className="bg-[url('https://t4.ftcdn.net/jpg/10/40/57/73/240_F_1040577301_4Sx67zLL26Pijedg2BkrboGEeedibo6U.jpg')] h-[70vh] w-full bg-cover bg-no-repeat bg-center overflow-hidden bg-black/50 flex rounded-lg shadow-2xl"
 >
   {/* Overlay */}
   <div className="w-full h-full rounded-lg bg-black/40 flex items-center ">

@@ -1,6 +1,7 @@
 "use client"
 import { addToLocalDB, deleteFromLocalDB, getAllFromLocalDB, getAllProductFromLocalDB } from "@/utils/localDB";
 import { createContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export const productContext = createContext();
 const ProductProvider = ({children}) => {
@@ -17,7 +18,7 @@ const ProductProvider = ({children}) => {
     const handleCart = (proObject,item) =>{
 
         if(item == 0){
-            alert("Select at least 1 itme");
+            toast.error("Select at least 1 itme");
             return;
         }
         const total = proObject.price * item;
@@ -26,22 +27,32 @@ const ProductProvider = ({children}) => {
 
         const isExistBook = storedProduct.find((pro)=> pro.id == proObject.id);
         if(isExistBook){
-         alert("The product already exist")
+         toast.warning("The product already exist")
         }else  {
 
         console.log(proObject,storedProduct, "id");
         setStoredProduct([...storedProduct, productQuantity]);
-        alert(`${proObject.name} is added`)
+        toast.success(`${proObject.name} is added`)
        }
-      }
+    }
 
+    const handleCheckOut = () => {
+    if (storedProduct.length > 0) {
+    localStorage.removeItem("product"); // cart empty
+    setStoredProduct([]); // UI update
+    toast.success("Product purchased successfully");
+     } else {
+    toast.error("Please select an item first");
+    }
+    };
     const handleDelete = (id) => {
-    deleteFromLocalDB(id);  // ✅ LocalDB থেকে সরাও
+    deleteFromLocalDB(id); 
     const filteredProduct = storedProduct.filter((pro) => pro.id !== id);
-    setStoredProduct(filteredProduct);  // ✅ UI থেকে সরাও
-}
+    setStoredProduct(filteredProduct);  
+    toast.success("Product removed")
+    }
 
-    return <productContext.Provider value={{storedProduct,setStoredProduct,handleCart, handleDelete}}>
+    return <productContext.Provider value={{storedProduct,setStoredProduct,handleCart, handleDelete, handleCheckOut}}>
         {children}
     </productContext.Provider>
 };
@@ -49,45 +60,3 @@ const ProductProvider = ({children}) => {
 export default ProductProvider;
 
 
-
-// "use client"
-// import { createContext, useState, useEffect } from "react";
-
-// export const productContext = createContext();
-
-// const ProductProvider = ({children}) => {
-//     const [storedProduct, setStoredProduct] = useState([]);
-
-//     useEffect(() => {
-//         const stored = localStorage.getItem("cart");
-//         if (stored) setStoredProduct(JSON.parse(stored));
-//     }, []);
-
-//     useEffect(() => {
-//         localStorage.setItem("cart", JSON.stringify(storedProduct));
-//     }, [storedProduct]);
-
-//     const handleCart = (proObject) => {
-//         const isExistBook = storedProduct.find((pro) => pro.id == proObject.id);
-//         if (isExistBook) {
-//             alert("Already exists");
-//         } else {
-//             setStoredProduct([...storedProduct, proObject]);
-//             alert(`${proObject.name} is added`);
-//         }
-//     };
-
-//     const data = {
-//         storedProduct,
-//         setStoredProduct,
-//         handleCart 
-//         };
-
-//     return (
-//         <productContext.Provider value={data}>
-//             {children}
-//         </productContext.Provider>
-//     );
-// };
-
-// export default ProductProvider;

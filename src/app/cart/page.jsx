@@ -9,7 +9,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { getAllProductFromLocalDB } from "@/utils/localDB";
 
 const CartPage = () => {
-  const { storedProduct,setStoredProduct,handleDelete } = useContext(productContext);
+  const { storedProduct, setStoredProduct,handleDelete, handleCheckOut } = useContext(productContext);
   console.log(storedProduct, "cart");
 
   let total = 0;
@@ -17,13 +17,6 @@ const CartPage = () => {
     total = total + product.total;
   });
 
-  const handleCheckOut = () =>{
-    if(storedProduct.length > 0){
-      alert("Product purchased successfull");
-    }else{
-      alert("Please select an item first");
-    }
-  }
 
   return (
     <div className="w-11/12 mx-auto my-10 grid grid-rows-1 md:grid-cols-5 justify-between gap-10 items-start">

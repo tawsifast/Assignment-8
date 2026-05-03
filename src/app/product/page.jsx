@@ -15,7 +15,7 @@ const ProductPage = async ({searchParams}) => {
     <div className="w-11/12 mx-auto">
       <h2 className="font-bold text-center text-3xl my-8 ">All Products</h2>
       <Category/>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {filteredProduct.map((product) => (
           <ProductsCard key={product.id} product={product}></ProductsCard>
         ))}
