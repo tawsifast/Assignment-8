@@ -11,6 +11,17 @@
     "category": "Accessories"
   },
   {
+    "id": 12,
+    "name": "Portable Fan",
+    "brand": "CoolBreeze",
+    "price": 16,
+    "rating": 4.7,
+    "stock": 30,
+    "description": "Rechargeable portable fan to beat the summer heat anywhere.",
+    "image": "https://cdn.dribbble.com/userupload/33575851/file/original-2bafbe485c6ff0b973ab0a667bf5cbe0.png?format=webp&resize=640x480&vertical=center",
+    "category": "Lifestyle"
+  },
+  {
     "id": 2,
     "name": "Beach Flip Flops",
     "brand": "CoolStep",
