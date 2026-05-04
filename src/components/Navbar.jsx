@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { BsCart2 } from "react-icons/bs";
 import NavLink from "./NavLink";
 import Image from "next/image";
-import logo from "../../public/navbarLogo-removebg-preview.png"
+import logo from "../../public/owl-removebg-preview.png"
 import { redirect } from "next/navigation";
 
 const Navbar = () => {

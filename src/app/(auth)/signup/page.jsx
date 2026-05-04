@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { BsGoogle, BsGooglePlay } from "react-icons/bs";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -24,10 +25,10 @@ const RegisterPage = () => {
 });
    console.log(res, error,"data error");
    if(error){
-    alert(error.message)
+    toast.warning(error.message)
    }
    if(res){
-    alert("Signup successfull")
+    toast.success("Signup successfull")
      router.push("/signin")
    }
   };
