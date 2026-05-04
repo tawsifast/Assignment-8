@@ -45,8 +45,8 @@ const Navbar = () => {
 
           {!user && (
             <div className="flex gap-2">
-              <Button>
-                <Link href={"/signup"} className={"text-white no-underline hidden sm:block"}>
+              <Button className={"hidden sm:block"}>
+                <Link href={"/signup"} className={"text-white no-underline"}>
                   Sign Up
                 </Link>
               </Button>
