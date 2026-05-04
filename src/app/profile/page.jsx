@@ -3,6 +3,7 @@ import ProfileModal from "@/components/ProfileModal";
 import Quantity from "@/components/Quantity";
 import { authClient } from "@/lib/auth-client";
 import { Avatar, Button, Card } from "@heroui/react";
+import Link from "next/link";
 import React from "react";
 
 const ProfilePage = () => {
@@ -16,7 +17,7 @@ const ProfilePage = () => {
   return (
     <div>
      
-      <Card className="max-w-100 mx-auto relative flex flex-col items-center border my-10">
+      { user && <Card className="max-w-100 mx-auto relative flex flex-col items-center border my-10">
         <div className="absolute right-2 top-1">
         <ProfileModal />
         </div>
@@ -35,7 +36,10 @@ const ProfilePage = () => {
               >
                 Sign out
               </Button>
-      </Card>
+      </Card>}
+      {!user && <Card className="w-5/12 mx-auto border my-14 flex flex-col justify-center items-center"><h2>You haven't signin your account </h2>
+      <Link href={"/signin"}><Button>Sign in</Button></Link></Card>
+        }
     </div>
   );
 };
