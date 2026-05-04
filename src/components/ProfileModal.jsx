@@ -13,8 +13,8 @@ const ProfileModal = () => {
       const {name, image} = data;
       console.log(data,"data");
       const { data:res, error } = await authClient.updateUser({
-     name,
-     image,
+      name,
+      image,
   });
   console.log( image, "update");
 }
@@ -43,13 +43,13 @@ const ProfileModal = () => {
                     </TextField>
                     <TextField className="w-full"{...register("image")} type="text">
                       <Label>Image</Label>
-                      <Input placeholder="Enter your email" />
+                      <Input placeholder="Enter your image url" />
                     </TextField>
                       <Modal.Footer>
                 <Button slot="close" variant="secondary">
                   Cancel
                 </Button>
-                <Button type="submit" slot="close">Save</Button>
+                <Button type="submit">Save</Button>
               </Modal.Footer>
                   </form>
                 </Surface>
