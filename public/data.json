@@ -11,7 +11,7 @@
     "category": "Accessories"
   },
   {
-    "id":2,
+    "id": 2,
     "name": "Portable Fan",
     "brand": "CoolBreeze",
     "price": 16,
@@ -41,7 +41,7 @@
     "rating": 4.2,
     "stock": 50,
     "description": "Colorful inflatable beach ball for fun summer activities.",
-    "image": "https://pixabay.com/images/download/x-6480825_1920.jpg",
+    "image": "https://cdn.dribbble.com/userupload/41657613/file/original-8136c27dbb35006a8fb446aa80887d80.png?format=webp&resize=640x480&vertical=center",
     "category": "Beach Accessories"
   },
   {
