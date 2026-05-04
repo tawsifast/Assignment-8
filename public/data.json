@@ -11,7 +11,7 @@
     "category": "Accessories"
   },
   {
-    "id": 12,
+    "id":2,
     "name": "Portable Fan",
     "brand": "CoolBreeze",
     "price": 16,
@@ -21,17 +21,7 @@
     "image": "https://cdn.dribbble.com/userupload/33575851/file/original-2bafbe485c6ff0b973ab0a667bf5cbe0.png?format=webp&resize=640x480&vertical=center",
     "category": "Lifestyle"
   },
-  {
-    "id": 2,
-    "name": "Beach Flip Flops",
-    "brand": "CoolStep",
-    "price": 12,
-    "rating": 4.5,
-    "stock": 20,
-    "description": "Comfortable and lightweight flip flops for beach and casual wear.",
-    "image": "https://images.pexels.com/photos/8455817/pexels-photo-8455817.jpeg",
-    "category": "Footwear"
-  },
+
   {
     "id": 3,
     "name": "Straw Summer Hat",
@@ -43,8 +33,19 @@
     "image": "https://images.pexels.com/photos/17555299/pexels-photo-17555299.jpeg",
     "category": "Accessories"
   },
-  {
+    {
     "id": 4,
+    "name": "Inflatable Beach Ball",
+    "brand": "FunWave",
+    "price": 8,
+    "rating": 4.2,
+    "stock": 50,
+    "description": "Colorful inflatable beach ball for fun summer activities.",
+    "image": "https://pixabay.com/images/download/x-6480825_1920.jpg",
+    "category": "Beach Accessories"
+  },
+  {
+    "id": 5,
     "name": "Portable Water Bottle",
     "brand": "HydroGo",
     "price": 10,
@@ -55,7 +56,7 @@
     "category": "Lifestyle"
   },
   {
-    "id": 5,
+    "id": 6,
     "name": "Summer Cotton T-Shirt",
     "brand": "FreshFit",
     "price": 20,
@@ -66,7 +67,7 @@
     "category": "Clothing"
   },
   {
-    "id": 6,
+    "id": 7,
     "name": "Sunscreen SPF 50+",
     "brand": "SkinGuard",
     "price": 14,
@@ -75,5 +76,16 @@
     "description": "High protection sunscreen lotion for safe summer outdoor activities.",
     "image": "https://images.pexels.com/photos/17752045/pexels-photo-17752045.jpeg",
     "category": "Skincare"
+  },
+    {
+    "id": 8,
+    "name": "Beach Flip Flops",
+    "brand": "CoolStep",
+    "price": 12,
+    "rating": 4.5,
+    "stock": 20,
+    "description": "Comfortable and lightweight flip flops for beach and casual wear.",
+    "image": "https://images.pexels.com/photos/8455817/pexels-photo-8455817.jpeg",
+    "category": "Footwear"
   }
 ]
