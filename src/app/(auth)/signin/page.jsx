@@ -5,6 +5,7 @@ import { error } from "better-auth/api";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
+import { toast } from "react-toastify";
 import {Button,Card,Description,FieldError,Form,Input,Label,TextField,} from "@heroui/react";
 
 const LoginPage = () => {
@@ -21,10 +22,10 @@ const LoginPage = () => {
 });
    console.log(res,error);
     if(error){
-    alert(error.message)
+    toast.warning(error.message)
    }
    if(res){
-    alert("Signin successfull")
+    toast.success("Signin successfull")
    }
   };
 
