@@ -36,7 +36,7 @@ const SummerCareTips = () => {
           Summer Care Tips
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {tips.map((tip) => (
             <Card key={tip.id} className="p-5 text-center shadow-md">
               <div className="text-5xl mb-3">{tip.icon}</div>
