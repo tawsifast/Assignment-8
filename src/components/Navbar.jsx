@@ -45,13 +45,13 @@ const Navbar = () => {
 
           {!user && (
             <div className="flex gap-2">
-              <Button className={"hidden sm:block"}>
+              <Button className={"hidden sm:block   bg-linear-to-r from-[#E94560] to-[#7B2FBE] text-white hover:opacity-90 transition-all duration-300"}>
                 <Link href={"/signup"} className={"text-white no-underline"}>
                   Sign Up
                 </Link>
               </Button>
-              <Button>
-                <Link href={"/signin"} className={"text-white no-underline"}>
+              <Button className={"bg-linear-to-r from-[#00B4D8] to-[#0096c7]"}>
+                <Link href={"/signin"} className={"text-white no-underline "}>
                   Sign In
                 </Link>
               </Button>
