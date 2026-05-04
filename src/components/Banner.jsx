@@ -11,28 +11,29 @@ const Banner = () => {
     <div className="h-[70vh] bg-[#1A1A2E]/90 w-full flex justify-between items-center rounded-lg shadow-2xl"
 >
   {/* Overlay */}
-  <div className="w-11/12 mx-auto h-full rounded-lg  flex items-center ">
-    <div className=" mx-auto animate__animated animate__bounceInLeft px-6 text-white">
-      <h1 className="text-3xl  md:text-4xl font-bold mb-4 max-w-2xl">
+  <div className="w-full md:w-11/12 mx-auto h-full rounded-lg  flex items-center ">
+    <div className="flex-1 mx-auto animate__animated animate__bounceInLeft px-6 text-white">
+      <h1 className="text-2xl  md:text-4xl font-bold mb-4 max-w-2xl">
        Discover Your Perfect <br /> Summer Style
       </h1>
 
-      <p className="text-lg md:text-xl mb-6 max-w-xl text-gray-200">
+      <p className="text-sm md:text-xl mb-6 max-w-xl text-gray-200">
        Beat the Heat with Our Summer Collection
       </p>
 
-      <div className="flex gap-4">
+      <div className="flex gap-2 sm:gap-4">
         <Link href="#">
-          <Button className="bg-linear-to-r from-[#C45D00] via-[#ED7100] to-[#FFB16A]">
+          <Button  className="px-2 py-1 text-xs md:px-4 md:py-2 md:text-sm bg-linear-to-r from-[#C45D00] via-[#ED7100] to-[#FFB16A]">
             Check now</Button></Link>
-        <Link href="/pricing"><Button variant="outline" className="text-white border-white">View Pricing</Button></Link>
+        <Link href="#"><Button variant="outline" className="px-2 py-1 text-xs md:px-4 md:py-2 md:text-sm text-white border-white">View Pricing</Button></Link>
       </div>
     </div>
-     <div className="animate__animated animate__slow  animate__pulse animate__infinite">
+     <div className="flex-1 animate__animated animate__slow  animate__pulse animate__infinite">
     <Image src={banner}
     alt="50% off"
     width={500}
     height={500}
+    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
     />
   </div>
   </div>
