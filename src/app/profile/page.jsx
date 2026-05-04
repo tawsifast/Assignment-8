@@ -31,7 +31,7 @@ const ProfilePage = () => {
         <h2 className="text-xl font-bold text-[#1A1A2E]">{user?.name}</h2>
         <p className="text-md text-muted font-semibold">{user?.email}</p>
        <Button onClick={handleSignOut} size="sm" variant="danger"
-              className={"bg-[#E94560] hover:bg-[#c73652] hidden sm:block"}
+              className={"bg-[#E94560] hover:bg-[#c73652]"}
               >
                 Sign out
               </Button>
