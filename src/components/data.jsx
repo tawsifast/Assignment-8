@@ -1,9 +1,9 @@
 
 export const getProduct = async () =>{
-    const res = await fetch("https://assignment-8-mu-rust.vercel.app/data.json");
+    const res = await fetch("https://shopzone-mu-rust.vercel.app/data.json");
     return await res.json();
 }
 export const getCategories = async () =>{
-    const res = await fetch("https://assignment-8-mu-rust.vercel.app/category.json");
+    const res = await fetch("https://shopzone-mu-rust.vercel.app/category.json");
      return await res.json();
 }
